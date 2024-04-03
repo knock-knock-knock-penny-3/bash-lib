@@ -2,6 +2,7 @@
 
 BASE_PATH=$(cd $(dirname $BASH_SOURCE) && pwd)
 [[ -f "${BASE_PATH}/markup" ]] && . "${BASE_PATH}/markup"
+[[ -f "${BASE_PATH}/tools" ]] && . "${BASE_PATH}/tools"
 
 # PRIVATE API
 _alert() {
