@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# PUBLIC API
+function join {
+    local IFS="$1"
+    shift
+    echo "$*"
+}
