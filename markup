@@ -18,3 +18,22 @@ BG_RED=$(tput setab 1)      # red
 BG_WHITE=$(tput setab 7)    # white
 BG_YELLOW=$(tput setab 3)   # yellow
 CLEAR=$(tput sgr0)          # clear
+
+export FG_BLACK
+export FG_BLUE
+export FG_CYAN
+export FG_GREEN
+export FG_MAGENTA
+export FG_RED
+export FG_WHITE
+export FG_YELLOW
+export BOLD
+export BG_BLACK
+export BG_BLUE
+export BG_CYAN
+export BG_GREEN
+export BG_MAGENTA
+export BG_RED
+export BG_WHITE
+export BG_YELLOW
+export CLEAR

@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-BASE_PATH=$(cd $(dirname $BASH_SOURCE) && pwd)
+BASE_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# shellcheck disable=SC1091
 [[ -f "${BASE_PATH}/markup" ]] && . "${BASE_PATH}/markup"
+# shellcheck disable=SC1091
 [[ -f "${BASE_PATH}/tools" ]] && . "${BASE_PATH}/tools"
 
 # PRIVATE API
 _alert() {
-  printf "$1$2${CLEAR}" "${BOLD}$3${CLEAR}$1"
-  echo
+  echo "$1${2//%s/"${BOLD}$3${CLEAR}$1"}${CLEAR}"
 }
 
 # PUBLIC API
@@ -15,22 +16,22 @@ log() {
   if [[ "$CLI_DEBUG" -eq 1 ]]; then
     script_name=${0##*/}
     timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    _alert ${CLEAR} "== $script_name $timestamp $1"
+    _alert "$CLEAR" "== $script_name $timestamp $1"
   fi
 }
 
 warning() {
-  _alert ${FG_YELLOW} "$1" "$2"
+  _alert "$FG_YELLOW" "$1" "$2"
 }
 
 error() {
-  _alert ${FG_RED} "$1" "$2"
+  _alert "$FG_RED" "$1" "$2"
 }
 
 success() {
-  _alert ${FG_GREEN} "$1" "$2"
+  _alert "$FG_GREEN" "$1" "$2"
 }
 
 msg() {
-  _alert ${FG_BLUE} "$1" "$2"
+  _alert "$FG_BLUE" "$1" "$2"
 }
